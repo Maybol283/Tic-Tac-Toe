@@ -1,5 +1,5 @@
 * {
-  border: solid 1px;
+  border: 1px solid black;
   box-sizing:border-box;
   background:orangered;
   margin: 0;
@@ -17,16 +17,23 @@ h1 {
   font-size: 2eM;
 }
 .grid {
+  
   display: grid;
-  grid-template: repeat(auto-fit, minmax(auto, 1fr));
-  grid-gap: 10px;
-  margin: 0 auto;
-  margin-bottom: 2rem;
+  grid-template-columns: repeat(3, 150px);
+  grid-template-rows: repeat(3, 150px);
+  margin: 20px;
+  justify-content: center;
 }
 
 .tile {
-  height: 20px;
-  width: 20px;
+  border: solid 2px black;
+  height: 150px;
+  width: 150px;
+}
 
-
+.start{
+  scale: 2;
+  color:orangered;
+  background-color: black;
+  margin: 20px 0 0 49%;
 }
