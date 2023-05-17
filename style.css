@@ -31,9 +31,26 @@ h1 {
   width: 150px;
 }
 
+.left {
+  border-left: none;
+}
+
+.top {
+  border-top: none;
+}
+
+.right{
+  border-right: none
+}
+
+.bot {
+  border-bottom: none;
+}
+
 .start{
   scale: 2;
   color:orangered;
   background-color: black;
   margin: 20px 0 0 49%;
 }
+
