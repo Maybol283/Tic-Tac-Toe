@@ -26,9 +26,12 @@ h1 {
 }
 
 .tile {
+  padding: 35%;
   border: solid 2px black;
   height: 150px;
   width: 150px;
+  text-align: center;
+  font-size: 3em;
 }
 
 .left {
@@ -54,3 +57,6 @@ h1 {
   margin: 20px 0 0 49%;
 }
 
+#winner{
+  display: none;
+}

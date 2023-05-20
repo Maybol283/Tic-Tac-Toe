@@ -1,5 +1,6 @@
 <html>
     <head>
+       
         <title>
             Tic Tac Toe
         </title>
@@ -8,21 +9,24 @@
     <link rel="stylesheet" href="style.css">
     </head>
     <body>
-    <section><h1>Tic Tac Toe</h1></section>
+    <section>
+        <h1 id="title">Tic Tac Toe</h1>
+    </section>
     <section class="game">
-    <section class="grid"">
-        <div class="tile left top"></div>
-        <div class="tile mid top"></div>
-        <div class="tile right top"></div>
-        <div class="tile left center"></div>
-        <div class="tile mid center"></div>
-        <div class="tile right center"></div>
-        <div class="tile left bot"></div>
-        <div class="tile mid bot"></div>
-        <div class="tile right bot"></div>
+    <section class="grid">
+        <div class="tile left top" id="1" script="makeMove" ></div>
+        <div class="tile mid top" id="2"></div>
+        <div class="tile right top" id="3"></div>
+        <div class="tile left center" id="4"></div>
+        <div class="tile mid center" id="5"></div>
+        <div class="tile right center" id="6"></div>
+        <div class="tile left bot" id="7"></div>
+        <div class="tile mid bot" id="8"></div>
+        <div class="tile right bot" id="9"></div>
     </section>
     <button class="start">Start</button>
 </section>
+<section id="winner">WINNER!</section>
     </body>
-    
+    <script src="file.js"></script>
 </html>
