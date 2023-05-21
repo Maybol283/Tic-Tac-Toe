@@ -1,7 +1,5 @@
 
 
-let player1 = "X";
-let player2 = "O";
 let gameBoard = [
 "U", "U", "U",
 "U", "U", "U",
@@ -24,25 +22,27 @@ const  makeMove = tileIndex => {
     if (playersTurn == 0){
     tile.innerHTML = "X";
        playersTurn = 1;
-       gameBoard[tileIndex - 1] = "X"
+       gameBoard[tileIndex - 1] = "X";
     } else {
         tile.innerHTML = "O";
         playersTurn = 0;
-        gameBoard[tileIndex - 1] = "O"
+        gameBoard[tileIndex - 1] = "O";
     }
     checkWinner();
  }
 
- winX = /^X{3}|(...X){3}|(X..){3}|.X..X..X.|(..X){3}|X...X...X|..X.X.X../gm
- winO = /^O{3}|(...O){3}|(X..){3}|.O..O..O.|(..X){3}|O...O...O|..O.O.O../gm
+ 
 
-  function checkWinner (gameBoard) {
-    gameBoard.join("");
-    if (gameBoard.match(winX)){
-       document.getElementById("winner").style.display =""
-    } else if (gameBoard.match(winO)){
-        document.getElementById("winner").style.display =""
+ winX = /^X{3}|(...)X{3}|(X..){3}|.X..X..X.|(..X){3}|X...X...X|..X.X.X../gm
+ winO = /^O{3}|(...)O{3}|(O..){3}|.O..O..O.|(..O){3}|O...O...O|..O.O.O../gm
+
+  function checkWinner () {
+    let boardCheck = gameBoard.join("");
+    if (winX.test(boardCheck)){
+       document.getElementById("winner").style.color = "green"
+    } else if (winO.test(boardCheck)){
+        document.getElementById("winner").style.color = "black"
     }
 }
 
-console.log(gameBoard)
+

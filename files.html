@@ -8,13 +8,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     </head>
+    
     <body>
-    <section>
+        <section class="Menu">
+            <button class="start">Start</button>
+        </section>
+    
+<section class="game">
         <h1 id="title">Tic Tac Toe</h1>
-    </section>
-    <section class="game">
-    <section class="grid">
-        <div class="tile left top" id="1" script="makeMove" ></div>
+    <div class="grid">
+        <div class="tile left top" id="1"  ></div>
         <div class="tile mid top" id="2"></div>
         <div class="tile right top" id="3"></div>
         <div class="tile left center" id="4"></div>
@@ -23,10 +26,10 @@
         <div class="tile left bot" id="7"></div>
         <div class="tile mid bot" id="8"></div>
         <div class="tile right bot" id="9"></div>
+    </div>
     </section>
-    <button class="start">Start</button>
-</section>
-<section id="winner">WINNER!</section>
+
+<span id="winner">WINNER!</span>
     </body>
     <script src="file.js"></script>
 </html>

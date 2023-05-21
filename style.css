@@ -5,6 +5,7 @@
   margin: 0;
   padding: 0;
   font-size: 16px;
+  
 }
 
 body {
@@ -17,7 +18,7 @@ h1 {
   font-size: 2eM;
 }
 .grid {
-  
+  position: relative;
   display: grid;
   grid-template-columns: repeat(3, 150px);
   grid-template-rows: repeat(3, 150px);
@@ -26,6 +27,7 @@ h1 {
 }
 
 .tile {
+  position: relative;
   padding: 35%;
   border: solid 2px black;
   height: 150px;
@@ -58,5 +60,13 @@ h1 {
 }
 
 #winner{
-  display: none;
+  font-size: 3em;
+  color: blue
+}
+
+.Menu {
+  position: relative;
+  background-color: aqua;
+  height: 100%;
+  z-index: 2;
 }
