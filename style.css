@@ -1,24 +1,26 @@
 * {
-  border: 1px solid black;
-  box-sizing:border-box;
+  box-sizing: border-box;
   background:orangered;
   margin: 0;
   padding: 0;
   font-size: 16px;
-  
+  overflow: hidden;
 }
 
-body {
-  color:black
-  
-}
+
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+  }
+
 h1 {
   text-align: center;
   margin-top: 5%;
   font-size: 2eM;
 }
 .grid {
-  position: relative;
   display: grid;
   grid-template-columns: repeat(3, 150px);
   grid-template-rows: repeat(3, 150px);
@@ -27,7 +29,6 @@ h1 {
 }
 
 .tile {
-  position: relative;
   padding: 35%;
   border: solid 2px black;
   height: 150px;
@@ -53,20 +54,37 @@ h1 {
 }
 
 .start{
-  scale: 2;
+  display:"none";
+  scale: 3;
+  height: 20px;
+  margin-top: 35%;
   color:orangered;
   background-color: black;
-  margin: 20px 0 0 49%;
+  border-radius: 5px;
+}
+
+.start:hover {
+  color: blue;
+  background: white;
 }
 
 #winner{
+  visibility: hidden;
+  position: absolute;
+  top: 10%;
+  right: 30%;
   font-size: 3em;
-  color: blue
+  color: blue;
 }
 
 .Menu {
-  position: relative;
-  background-color: aqua;
-  height: 100%;
-  z-index: 2;
+  visibility: visible;
+  display:flex;
+  align-self: center;
+  justify-content: center;
+  position: fixed;
+  background-color: rgba(189, 88, 11, 0.75);
+  height:100%;
+  width: 100%;
+  z-index: 1;
 }
