@@ -1,9 +1,9 @@
 
 //Inital gameBoard state
 let gameBoard = [
-"U", "U", "U",
-"U", "U", "U",
-"U", "U", "U",
+"", "", "",
+"", "", "",
+"", "", "",
 ];
 
 // Creates tiles 1 - 9
@@ -17,7 +17,7 @@ let playersTurn = 0
 
 //Changes the tile to either X or O and updates players turn
 const  makeMove = tileIndex => {
-    let tile = document.getElementById(tileIndex)
+    let tile = document.getElementById(tileIndex) 
    
     if (playersTurn == 0){
     tile.innerHTML = "X";
@@ -35,7 +35,7 @@ const  makeMove = tileIndex => {
 //Win checker Regex's
  winX = /^X{3}|...X{3}...|......X{3}|(X..){3}|.X..X..X.|(..X){3}|X...X...X|..X.X.X../gm
  winO = /^O{3}|...O{3}...|......X{3}|(O..){3}|.O..O..O.|(..O){3}|O...O...O|..O.O.O../gm
- Draw =/U/gmi
+ Draw =/\d/gm
 
  //Win checker function
   function checkWinner () {
@@ -53,7 +53,7 @@ const  makeMove = tileIndex => {
         document.getElementById("winner").style.color = "black";
         setTimeout(menuOpen, 1000);
 
-    } else if (!Draw.test(boardCheck)){
+    } else if (!Draw.test(boardCheck) && boardCheck.length == 9) {
       document.getElementById("winner").style.visibility = "visible";
       document.getElementById("winner").innerHTML = "Draw";
         document.getElementById("winner").style.color = "pink";
@@ -62,12 +62,13 @@ const  makeMove = tileIndex => {
     
 }
 
+
 //Start game button
 function startGame() {
   document.querySelector(".Menu").style.visibility = "hidden";
 }
 //Re-Open the menu
 function menuOpen() {
-  //document.querySelector(".Menu").style.visibility = "visible";
-  //location.reload();
+  document.querySelector(".Menu").style.visibility = "visible";
+  location.reload();
 }
