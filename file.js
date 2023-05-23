@@ -1,9 +1,9 @@
 
 //Inital gameBoard state
 let gameBoard = [
-"", "", "",
-"", "", "",
-"", "", "",
+",", ",", ",",
+",", ",", ",",
+",", ",", ",",
 ];
 
 // Creates tiles 1 - 9
@@ -35,7 +35,7 @@ const  makeMove = tileIndex => {
 //Win checker Regex's
  winX = /^X{3}|...X{3}...|......X{3}|(X..){3}|.X..X..X.|(..X){3}|X...X...X|..X.X.X../gm
  winO = /^O{3}|...O{3}...|......X{3}|(O..){3}|.O..O..O.|(..O){3}|O...O...O|..O.O.O../gm
- Draw =/\d/gm
+ Draw =/\w/gm
 
  //Win checker function
   function checkWinner () {

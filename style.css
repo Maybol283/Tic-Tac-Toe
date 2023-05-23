@@ -24,9 +24,23 @@ h1 {
 
 .scoreboard {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  margin: 0 200;
 }
 
+.score {
+  position:absolute;
+}
+
+.one {
+  right: 290;
+  top: 200;
+}
+
+.two {
+  left: 290;
+  top: 200;
+}
 
 .player, .score {
   font-size: 4eM;
@@ -41,12 +55,17 @@ h1 {
 }
 
 .tile {
+  cursor: pointer;
   padding: 35%;
   border: solid 2px black;
   height: 150px;
   width: 150px;
   text-align: center;
   font-size: 3em;
+}
+
+.tile:hover {
+  border: 5px beige dotted;
 }
 
 .left {
@@ -82,9 +101,8 @@ h1 {
 
 #winner{
   visibility: hidden;
-  position: absolute;
-  top: 15%;
-  right: 43%;
+  top: 100px;
+  right: 44%;
   font-size: 3em;
   color: blue;
 }
