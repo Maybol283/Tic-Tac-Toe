@@ -1,9 +1,9 @@
 
 //Inital gameBoard state
 let gameBoard = [
-",", ",", ",",
-",", ",", ",",
-",", ",", ",",
+"U", "U", "U",
+"U", "U", "U",
+"U", "U", "U",
 ];
 
 // Creates tiles 1 - 9
@@ -34,8 +34,8 @@ const  makeMove = tileIndex => {
  
 //Win checker Regex's
  winX = /^X{3}|...X{3}...|......X{3}|(X..){3}|.X..X..X.|(..X){3}|X...X...X|..X.X.X../gm
- winO = /^O{3}|...O{3}...|......X{3}|(O..){3}|.O..O..O.|(..O){3}|O...O...O|..O.O.O../gm
- Draw =/\w/gm
+ winO = /^O{3}|...O{3}...|......O{3}|(O..){3}|.O..O..O.|(..O){3}|O...O...O|..O.O.O../gm
+ Draw =/^([^U])+$/
 
  //Win checker function
   function checkWinner () {
@@ -44,16 +44,16 @@ const  makeMove = tileIndex => {
     if (winX.test(boardCheck)){
       document.getElementById("winner").style.visibility = "visible";
       document.getElementById("winner").innerHTML = "Player 1 Wins!";
-      document.getElementById("winner").style.color = "green";
+      document.getElementById("winner").style.color = "var(--c3)";
       setTimeout(menuOpen, 1000);
 
     } else if (winO.test(boardCheck)){
       document.getElementById("winner").style.visibility = "visible";
       document.getElementById("winner").innerHTML = "Player 2 Wins!";
-        document.getElementById("winner").style.color = "black";
+        document.getElementById("winner").style.color = "var(--c3)";
         setTimeout(menuOpen, 1000);
 
-    } else if (!Draw.test(boardCheck) && boardCheck.length == 9) {
+    } else if (Draw.test(boardCheck) && boardCheck.length == 9) {
       document.getElementById("winner").style.visibility = "visible";
       document.getElementById("winner").innerHTML = "Draw";
         document.getElementById("winner").style.color = "pink";
