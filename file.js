@@ -46,27 +46,27 @@ const  makeMove = tileIndex => {
  //Win checker function
   function checkWinner () {
     let boardCheck = gameBoard.join("");
-
+   let win = document.querySelector("#winner")
     if (winX.test(boardCheck)){
-      document.getElementById("winner").style.visibility = "visible";
-      document.getElementById("winner").innerHTML = "Player 1 Wins!";
-      document.getElementById("winner").style.color = "var(--c2)";
+      win.style.visibility = "visible";
+      win.innerHTML = "Player 1 Wins!";
+      win.style.color = "var(--c2)";
       sOne ++;
-      document.getElementById("scoreOne").innerHTML = sOne;
+      document.querySelector("#scoreOne").innerHTML = sOne;
       setTimeout(menuOpen, 1000);
 
     } else if (winO.test(boardCheck)){
-      document.getElementById("winner").style.visibility = "visible";
-      document.getElementById("winner").innerHTML = "Player 2 Wins!";
-        document.getElementById("winner").style.color = "var(--c2)";
+    win.style.visibility = "visible";
+     win.innerHTML = "Player 2 Wins!";
+     win.style.color = "var(--c2)";
         sTwo ++;
-        document.getElementById("scoreTwo").innerHTML = sTwo;
+        document.querySelector("#scoreTwo").innerHTML = sTwo;
         setTimeout(menuOpen, 1000);
 
     } else if (Draw.test(boardCheck) && boardCheck.length == 9) {
-      document.getElementById("winner").style.visibility = "visible";
-      document.getElementById("winner").innerHTML = "Draw";
-        document.getElementById("winner").style.color = "(--c2)";
+      win.style.visibility = "visible";
+      win.innerHTML = "Draw";
+      win.style.color = "(--c2)";
         setTimeout(menuOpen, 1000);
     }
     
@@ -77,10 +77,14 @@ const  makeMove = tileIndex => {
 function startGame() {
   document.querySelector(".Menu").style.visibility = "hidden";
 }
+
 //Re-Open the menu
 function menuOpen() {
-  document.querySelector(".Menu").style.visibility = "visible";
- let tList = document.querySelectorAll(".tile");
- tList.forEach(t => t.innerHTML ="");
- gameBoard.forEach(i => gameBoard[i] = "U");
+  let tList = document.querySelectorAll(".tile");
+ document.querySelector(".Menu").style.visibility = "visible";
+ document.querySelector("#winner").style.visibility = "hidden";
+ tList.forEach(t => t.innerHTML =" ");
+ gameBoard.forEach((_, i) => {
+  gameBoard[i] = "U";
+});
 }

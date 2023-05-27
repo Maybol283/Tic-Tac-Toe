@@ -13,54 +13,43 @@
   margin: 0;
   padding: 0;
   font-size: 16px;
-  overflow: hidden;
   z-index: 1;
+  border: 1px black solid;
 }
 
 
   body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    margin: 0;
     background: var(--c1);
   }
 
+.game {
+  text-align: center;
+}
+
 h1 {
   text-align: center;
-  font-size: 4eM;
+  font-size: 3eM;
 }
 
-.scoreboard {
+.scoreboard{
   display: flex;
-  justify-content: space-between;
-  margin: 0 200;
+  justify-content: space-evenly;
 }
 
-.score {
-  position:absolute;
+.wrapperOne {
+  height: 100px;
+  width: 12vw;
 }
 
-.one {
-  left: 290;
-  top: 200;
-}
-
-.two {
-
-  right: 290;
-  top: 200;
-}
-
-.player, .score {
-  font-size: 4eM;
+.wrapperTwo {
+  height: 100px;
+  width: 12vw
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 150px);
   grid-template-rows: repeat(3, 150px);
-  margin: 20px;
   justify-content: center;
 }
 
@@ -71,7 +60,6 @@ h1 {
   border: solid 2px var(--c2);
   height: 150px;
   width: 150px;
-  text-align: center;
   font-size: 3em;
 }
 
@@ -113,11 +101,13 @@ h1 {
   background: var(--c4);
 }
 
-#winner{
+#winner {
   visibility: hidden;
-  top: 100px;
-  right: 44%;
+  display: normal;
+  position: relative;
+  bottom: 250px;
   font-size: 3em;
+  visibility: hidden;
   color: blue;
 }
 
