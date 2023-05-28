@@ -42,13 +42,13 @@ h1 {
 
 
 .wrapperTwo, .wrapperOne {
+  display: none;
   height: 100px;
   width: 12vw;
-  visibility: hidden;
 }
 
 .grid {
-  visibility: hidden;
+  
   display: grid;
   grid-template-columns: repeat(3, 150px);
   grid-template-rows: repeat(3, 150px);
@@ -56,6 +56,7 @@ h1 {
 }
 
 .tile {
+  display: none;
   cursor: pointer;
   padding: 30% 0;
   color: var(--c2);
@@ -113,8 +114,7 @@ h1 {
 }
 
 #winner {
-  visibility: hidden;
-  display: normal;
+  display: none;
   position: relative;
   bottom: 250px;
   font-size: 3em;
@@ -140,7 +140,7 @@ h1 {
     animation: OpacityS 3s;
   }
 
-  
+
 
 @keyframes boardSetR {
   0%{

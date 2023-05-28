@@ -1,6 +1,5 @@
 
 
-
 //Inital gameBoard state
 let gameBoard = [
 "U", "U", "U",
@@ -48,39 +47,44 @@ const  makeMove = tileIndex => {
  //Win checker function
   function checkWinner () {
     let boardCheck = gameBoard.join("");
-   let win = document.querySelector("#winner")
+   let win = $("#winner")
     if (winX.test(boardCheck)){
-      reverseAnimation ()
-     // win.style.visibility = "visible";
-     // win.innerHTML = "Player 1 Wins!";
-     // win.style.color = "var(--c2)";
-      sOne ++;
-      document.querySelector("#scoreOne").innerHTML = sOne;
+      reverseAnimations();
       setTimeout(reset, 1000);
+      win.show();
+      win.text("Player 1 Wins!");
+      win.css("color", "var(--c2");
+      sOne ++;
+      $("#scoreOne").text(sOne);
+      
 
     } else if (winO.test(boardCheck)){
-    win.style.visibility = "visible";
-     win.innerHTML = "Player 2 Wins!";
-     win.style.color = "var(--c2)";
+      reverseAnimations ()
+      setTimeout(reset, 1000);
+      win.show();
+      win.text("Player 2 Wins!");
+      win.css("color", "var(--c2")
         sTwo ++;
-        document.querySelector("#scoreTwo").innerHTML = sTwo;
-        setTimeout(reset, 1000);
+       $("#scoreTwo").text(sTwo);
 
     } else if (Draw.test(boardCheck) && boardCheck.length == 9) {
-      win.style.visibility = "visible";
-      win.innerHTML = "Draw";
-      win.style.color = "(--c2)";
-        setTimeout(reset, 1000);
+      reverseAnimations ();
+      setTimeout(reset, 1000);
+      win.show();
+      win.text("Draw");
+      win.css("color", "var(--c2")
+        
     }
      
 }
 
+
 //Start game button
 function startGame() {
-  $(".start").style.visibility = "hidden";
-  document.querySelector(".grid").style.visibility = "visible";
-  document.querySelector(".wrapperOne").style.visibility = "visible";
-  document.querySelector(".wrapperTwo").style.visibility = "visible";
+  $(".start").hide();
+  $(".tile").show();
+  $(".wrapperOne").show();
+  $(".wrapperTwo").show();
  startAnimations();
 }
 
@@ -88,7 +92,7 @@ function startGame() {
 //Re-Open the menu
 function reset() {
  let tList = document.querySelectorAll(".tile");
- document.querySelector("#winner").style.visibility = "hidden";
+ $("#winner").hide()
  tList.forEach(t => t.innerHTML ="");
  gameBoard.forEach((_, i) => {
   gameBoard[i] = "U";
@@ -96,20 +100,31 @@ function reset() {
 }
 
 // Gameboard animations
-function startAnimations () {
-  document.querySelector(".left-center").classList.add("left-A");
-  document.querySelector(".right-center").classList.add ("right-A") 
-  document.querySelector(".mid-bot").classList.add ("down") 
-  document.querySelector(".mid-top").classList.add ("up") 
-  document.querySelector(".mid-center").classList.add ("fade") 
-  document.querySelector(".wrapperOne").classList.add ("left-A") 
-  document.querySelector(".wrapperTwo").classList.add ("right-A") 
+function startAnimations() {
+  $(".grid").show();
+  $(".tile").show();
+  $(".mid-center").addClass("fade").show();
+  $(".left-center").addClass("left-A").show();
+  $(".right-center").addClass("right-A").show();
+  $(".mid-bot").addClass("down").show();
+  $(".mid-top").addClass("up").show();
+  $(".wrapperOne").addClass("left-A").show();
+  $(".wrapperTwo").addClass("right-A").show();
+
+
 }
   
-function reverseAnimation () {
-  let aList = document.querySelectorAll(".animation");
-  aList.forEach (a =>
-    a.style.removeProperty = "animation"
 
-     )
+function reverseAnimations() {
+  $(".tile").hide();
+  $(".mid-center").removeClass("fade hide show").hide();
+  $(".left-center").removeClass("left-A hide show").hide();
+  $(".right-center").removeClass("right-A hide show").hide();
+  $(".mid-bot").removeClass("down hide show").hide();
+  $(".mid-top").removeClass("up hide show").hide();
+  $(".grid").fadeOut();
+  $(".start").text("Again?").delay(800).fadeIn();
 }
+     
+
+
