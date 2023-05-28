@@ -1,51 +1,54 @@
 <html>
     <head>
-        <title>
+        <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous">
+            $( document ).ready(function() {
+ 
+});
+        </script>
             Tic Tac Toe
         </title>
-    <meta charset="UTF-8">
+        <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     </head>
     
-    <body>
+<body>
 
-        <section class="Menu">
-            <button class="start" onclick="startGame()">Start</button>
-        </section>
-
-
-    
-<section class="game">
+ <section class="game startup">
         <h1 id="title">Tic Tac Toe</h1>
      <section class="scoreboard">
-          <div class="wrapperOne">
+          
+        <div class="wrapperOne animated">
             <div class="player one">Player 1
               </div>
             <span id="scoreOne" class ="score one">0</span>
           </div>
-          <div class="wrapperTwo">
+          
+          <div class="wrapperTwo animated">
             <div  class="player two">Player 2
                 </div>
             <span id="scoreTwo" class ="score two">0</span>
-          </div>
+         
+        </div>
   </section>
-
-    <div class="grid">
+    <button class="start" onclick="startGame()">Start</button>
+    <div class="grid startup">
         <div class="tile left top" id="1"  ></div>
-        <div class="tile mid top" id="2"></div>
+        <div class="tile mid-top top animated" id="2"></div>
         <div class="tile right top" id="3"></div>
-        <div class="tile left center" id="4"></div>
-        <div class="tile mid center" id="5">   </div>
-        <div class="tile right center" id="6"></div>
+        <div class="tile left-center left animated" id="4"></div>
+        <div class="tile mid-center" id="5"></div>
+        <div class="tile right-center right animated" id="6"></div>
         <div class="tile left bot" id="7"></div>
-        <div class="tile mid bot" id="8"></div>
+        <div class="tile mid-bot bot animated" id="8"></div>
         <div class="tile right bot" id="9"></div>
     </div>
+    
    <span id="winner">WINNER!</span>
     </section>
-
+    
 
     </body>
-    <script src="file.js"></script>
+   
+    <script src="file.js" type="text/javascript"></script>
 </html>

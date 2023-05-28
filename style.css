@@ -6,7 +6,6 @@
 }
 
 
-
 * {
   color: var(--c2);
   box-sizing: border-box;
@@ -14,7 +13,8 @@
   padding: 0;
   font-size: 16px;
   z-index: 1;
-  border: 1px black solid;
+  overflow: hidden;
+  font-family: sans-serif;
 }
 
 
@@ -36,17 +36,19 @@ h1 {
   justify-content: space-evenly;
 }
 
-.wrapperOne {
-  height: 100px;
-  width: 12vw;
+.score {
+  font-size: 4em;
 }
 
-.wrapperTwo {
+
+.wrapperTwo, .wrapperOne {
   height: 100px;
-  width: 12vw
+  width: 12vw;
+  visibility: hidden;
 }
 
 .grid {
+  visibility: hidden;
   display: grid;
   grid-template-columns: repeat(3, 150px);
   grid-template-rows: repeat(3, 150px);
@@ -55,11 +57,11 @@ h1 {
 
 .tile {
   cursor: pointer;
-  padding: 35%;
+  padding: 30% 0;
   color: var(--c2);
-  border: solid 2px var(--c2);
-  height: 150px;
+  border: solid 10px var(--c2);
   width: 150px;
+  height: 150px;
   font-size: 3em;
 }
 
@@ -68,31 +70,40 @@ h1 {
   border: 5px dotted var(--c2);
 }
 
+
 .left {
+  position: relative;
   border-left: none;
+  border-right: none;
 }
 
 .top {
   border-top: none;
+  border-bottom: none;
 }
 
 .right{
-  border-right: none
+  border-right: none;
+  border-left: none;
 }
 
 .bot {
+  border-top: none;
   border-bottom: none;
 }
 
 .start{
-  display:"none";
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  visibility: visible;
   font-size: 4em;
   height: 100px;
   width: 200px;
-  margin-top: 22%;
   color: var(--c3);
   background-color: var(--c1);
   border-radius: 5px;
+  transform: translate(-50%, -50%);
 }
 
 .start:hover {
@@ -107,19 +118,96 @@ h1 {
   position: relative;
   bottom: 250px;
   font-size: 3em;
-  visibility: hidden;
   color: blue;
 }
 
-.Menu {
-  visibility: visible;
-  display:flex;
-  align-self: center;
-  justify-content: center;
-  position: fixed;
-  background: var(--c3);
-  opacity: 0.9;
-  height:100%;
-  width: 100%;
-  z-index: 3;
+.down {
+  animation: boardSetT 2s, OpacityS 2;
+  }
+  
+  .up {
+  animation: boardSetB 2s, OpacityS 2;
+  }
+  .left-A {
+  animation: boardSetR 2s, OpacityS 2;
+  }
+  
+  .right-A{
+  animation: boardSetL 2s, OpacityS 2;
+  }
+  
+  .fade {
+    animation: OpacityS 3s;
+  }
+
+  
+
+@keyframes boardSetR {
+  0%{
+		translate: -100% 0%;
+	}
+	100%{
+		translate: 0 0%;
+	}
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes boardSetL{
+  0%{
+		translate: 100% 0%;
+	}
+	100%{
+		translate: 0 0%;
+	}
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes boardSetT {
+  0%{
+		translate: 0 100%;
+	}
+	100%{
+		translate: 0 0%;
+	}
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+
+}
+
+@keyframes boardSetB {
+  0%{
+		translate: 0 -100%;
+	}
+	100%{
+		translate: 0 0%;
+	}
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes OpacityS{
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
