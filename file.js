@@ -12,7 +12,7 @@ let gameBoard = [
 for (let i = 1; i <= 9; i++) {
     document.getElementById(i).addEventListener("click", function () {
       makeMove(i);
-
+      
     });
   }
 //Player Score
@@ -21,6 +21,28 @@ let sTwo = 0;
 
 //Player turn tracker
 let playersTurn = 0
+
+/*Hover tile function (Not Working)
+$("tile").hover(playersTurn) 
+  if(playersTurn == 0) {
+    $(".tile").hover(
+     function () {
+      $(this).text("O");
+},
+    function () {
+      $(this).text("")
+})
+  } else {
+   $(".tile").hover(
+    function () {
+     $(this).text("X");
+},
+    function () {
+     $(this).text("")
+})
+  }
+*/
+
 
 //Changes the tile to either X or O and updates players turn
 const  makeMove = tileIndex => {
@@ -47,33 +69,42 @@ const  makeMove = tileIndex => {
  //Win checker function
   function checkWinner () {
     let boardCheck = gameBoard.join("");
-   let win = $("#winner")
+    let win = $("#winner")
+
     if (winX.test(boardCheck)){
+      reset();
+      setTimeout(function () {
+        win.fadeIn().delay(400).fadeOut();
+        win.text("Player 1 Wins!");
+        win.css("color", "var(--c2");
+        sOne ++;
+        $("#scoreOne").text(sOne);
+      },400);
       reverseAnimations();
-      setTimeout(reset, 1000);
-      win.show();
-      win.text("Player 1 Wins!");
-      win.css("color", "var(--c2");
-      sOne ++;
-      $("#scoreOne").text(sOne);
+
       
 
     } else if (winO.test(boardCheck)){
-      reverseAnimations ()
-      setTimeout(reset, 1000);
-      win.show();
-      win.text("Player 2 Wins!");
-      win.css("color", "var(--c2")
+      reset();
+      setTimeout(function () {
+        win.fadeIn().delay(400).fadeOut();
+        win.text("Player 2 Wins!");
+        win.css("color", "var(--c2");
         sTwo ++;
-       $("#scoreTwo").text(sTwo);
+        $("#scoreTwo").text(sTwo);
+      },400);
+      reverseAnimations();
 
     } else if (Draw.test(boardCheck) && boardCheck.length == 9) {
       reverseAnimations ();
-      setTimeout(reset, 1000);
-      win.show();
-      win.text("Draw");
-      win.css("color", "var(--c2")
-        
+      reset();
+      setTimeout(function () {
+        win.show().delay(400).fadeOut();
+        win.text("Draw");
+        win.css("color", "var(--c2")
+          
+      }, 400)
+
     }
      
 }
@@ -89,10 +120,9 @@ function startGame() {
 }
 
 
-//Re-Open the menu
+//Reset the board state
 function reset() {
  let tList = document.querySelectorAll(".tile");
- $("#winner").hide()
  tList.forEach(t => t.innerHTML ="");
  gameBoard.forEach((_, i) => {
   gameBoard[i] = "U";
@@ -102,7 +132,6 @@ function reset() {
 // Gameboard animations
 function startAnimations() {
   $(".grid").show();
-  $(".tile").show();
   $(".mid-center").addClass("fade").show();
   $(".left-center").addClass("left-A").show();
   $(".right-center").addClass("right-A").show();
@@ -110,21 +139,16 @@ function startAnimations() {
   $(".mid-top").addClass("up").show();
   $(".wrapperOne").addClass("left-A").show();
   $(".wrapperTwo").addClass("right-A").show();
-
-
 }
   
 
 function reverseAnimations() {
-  $(".tile").hide();
-  $(".mid-center").removeClass("fade hide show").hide();
-  $(".left-center").removeClass("left-A hide show").hide();
-  $(".right-center").removeClass("right-A hide show").hide();
-  $(".mid-bot").removeClass("down hide show").hide();
-  $(".mid-top").removeClass("up hide show").hide();
+  $(".mid-center").removeClass("fade hide show").fadeOut();
+  $(".left-center").removeClass("left-A hide show").fadeOut();
+  $(".right-center").removeClass("right-A hide show").fadeOut();
+  $(".mid-bot").removeClass("down hide show").fadeOut();
+  $(".mid-top").removeClass("up hide show").fadeOut();
   $(".grid").fadeOut();
-  $(".start").text("Again?").delay(800).fadeIn();
+  $(".start").text("Again?").delay(2000).fadeIn();
 }
-     
-
 
