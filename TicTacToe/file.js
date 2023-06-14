@@ -131,7 +131,6 @@ function reset() {
 
 // Gameboard animations
 function startAnimations() {
-  $(".grid").show();
   $(".mid-center").addClass("fade").show();
   $(".left-center").addClass("left-A").show();
   $(".right-center").addClass("right-A").show();
@@ -139,6 +138,9 @@ function startAnimations() {
   $(".mid-top").addClass("up").show();
   $(".wrapperOne").addClass("left-A").show();
   $(".wrapperTwo").addClass("right-A").show();
+  setTimeout(function () {
+    $(".grid").show();
+  }, 800)
 }
   
 
