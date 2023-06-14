@@ -102,10 +102,14 @@ function reset() {
 // Gameboard animations
 function startAnimations() {
 <<<<<<< HEAD:TicTacToe/file.js
+<<<<<<< HEAD:TicTacToe/file.js
 =======
   $(".grid").show();
   $(".tile").show();
 >>>>>>> parent of c3eb9de (Fixed Animations/ Started Hover Function):file.js
+=======
+  $(".grid").show();
+>>>>>>> parent of f201a08 (Project#3 Initialised):file.js
   $(".mid-center").addClass("fade").show();
   $(".left-center").addClass("left-A").show();
   $(".right-center").addClass("right-A").show();
@@ -114,6 +118,7 @@ function startAnimations() {
   $(".wrapperOne").addClass("left-A").show();
   $(".wrapperTwo").addClass("right-A").show();
 <<<<<<< HEAD:TicTacToe/file.js
+<<<<<<< HEAD:TicTacToe/file.js
   setTimeout(function () {
     $(".grid").show();
   }, 800)
@@ -121,6 +126,8 @@ function startAnimations() {
 
 
 >>>>>>> parent of c3eb9de (Fixed Animations/ Started Hover Function):file.js
+=======
+>>>>>>> parent of f201a08 (Project#3 Initialised):file.js
 }
   
 
